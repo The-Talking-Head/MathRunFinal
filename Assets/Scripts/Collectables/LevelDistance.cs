@@ -13,18 +13,23 @@ public class LevelDistance : MonoBehaviour
 
     void Update()
     {
-        if(addingDis == false)
+        if (PlayerMove.canMove == true && addingDis == false)
         {
             addingDis = true;
             StartCoroutine(AddingDis());
+        }
+        else
+        {
+            addingDis = false;
         }
         
     }
     IEnumerator AddingDis()
     {
-        disRun += 1;
-        disDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "" + disRun;
-        yield return new WaitForSeconds(disDelay);
-        addingDis = false;
+            disRun += 1;
+            disDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "" + disRun;
+            yield return new WaitForSeconds(disDelay);
+            addingDis = false;
+        
     }
 }
